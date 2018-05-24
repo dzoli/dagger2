@@ -4,10 +4,12 @@ import com.squareup.picasso.Picasso;
 
 import dagger.Component;
 import dmi.pmf.novica.mvpwiseass.RandomUsersApi;
+import dmi.pmf.novica.mvpwiseass.annotation.RandomUserApplicationScope;
 import dmi.pmf.novica.mvpwiseass.module.PicassoModule;
 import dmi.pmf.novica.mvpwiseass.module.RandomUserModule;
 
 // we need to educate component where to find this top level dependencies
+@RandomUserApplicationScope
 @Component(modules = {RandomUserModule.class, PicassoModule.class})
 public interface RandomUserComponent {
 

@@ -6,6 +6,7 @@ import com.google.gson.GsonBuilder;
 import dagger.Module;
 import dagger.Provides;
 import dmi.pmf.novica.mvpwiseass.RandomUsersApi;
+import dmi.pmf.novica.mvpwiseass.annotation.RandomUserApplicationScope;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -27,7 +28,7 @@ public class RandomUserModule {
         return retrofit.create(RandomUsersApi.class);
     }
 
-
+    @RandomUserApplicationScope
     @Provides
     public Retrofit retrofit(OkHttpClient okHttpClient,
                              GsonConverterFactory gsonConverterFactory,

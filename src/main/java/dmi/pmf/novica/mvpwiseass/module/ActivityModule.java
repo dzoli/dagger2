@@ -8,25 +8,21 @@ import dagger.Module;
 import dagger.Provides;
 import dmi.pmf.novica.mvpwiseass.annotation.RandomUserApplicationScope;
 
-/*
-    This is low level module
-
-*/
-
 @Module
-public class ContextModule {
+public class ActivityModule {
 
-    private Context context;
+    private final Context context;
 
-
-    public ContextModule(Context context) {
+    public ActivityModule(Context context) {
         this.context = context;
     }
 
-    @Named("application_context")
+
+    @Named("activity_context") // dagger don't know which context provide when (app or activity)
     @RandomUserApplicationScope
     @Provides
-    public Context context(){
-        return context.getApplicationContext();
+    public Context context() {
+        return context;
     }
 }
+
